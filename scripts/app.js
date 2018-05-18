@@ -4,13 +4,25 @@ $(document).ready(function () {
     let urls = [];
 
     $('.search-btn').click(() => {
-        searchWiki();
-        $("#search").val("");
+        if ($("#search").val()) {
+            searchWiki();
+            // clear search after clicked
+            $("#search").val("");
+        } else {
+            alert("Please enter a valid input!");
+        }
+        
     });
 
     $('.lucky-btn').click(() => {
-        searchLucky();
-        $('#search').val('');
+        if ($("#search").val()) {
+            searchLucky();
+            $("#search").val("");
+        } else {
+            alert('Please enter a valid input!');
+        }
+        
+        
     });
 
     // search wiki that returns 10 results
@@ -47,6 +59,7 @@ $(document).ready(function () {
             })
     }
 
+    
 
 
 
