@@ -38,9 +38,9 @@ $(document).ready(function () {
         let numOfResults = 8;
         let url = `https://en.wikipedia.org/w/api.php?action=opensearch&search=${query}&limit=${numOfResults}&namespace=0&redirects=return&format=json&callback=?`;
         let html;
+        $(".wiki-results").empty();
         $.getJSON(url)
             .done((data) => {
-                console.log(data);
                 for(let i = 0; i < numOfResults; i++) {
                     titles[i] = data[1][i];
                     summary[i] = data[2][i];
